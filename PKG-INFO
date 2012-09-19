@@ -1,0 +1,20 @@
+Metadata-Version: 1.0
+Name: NOVAS_Py
+Version: 3.1
+Summary: Python wrappers for the US Naval Observatory's                         NOVAS-C package.
+Home-page: http://www.usno.navy.mil/USNO/astronomical-applications/software-products/novas
+Author: Eric G. Barron
+Author-email: eric.barron@usno.navy.mil
+License: UNKNOWN
+Download-URL: http://www.usno.navy.mil/USNO/astronomical-applications/software-products/novas
+Description: UNKNOWN
+Platform: macosx
+Platform: linux
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Scientific/Engineering :: Astronomy
