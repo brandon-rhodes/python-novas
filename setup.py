@@ -188,6 +188,7 @@ def main():
     }
 
     # Begin customizations by Brandon Rhodes for release on PyPI
+    options['name'] = 'novas'
     options['description'] = ('The United States Naval Observatory'
                               ' NOVAS astronomy library')
     options['long_description'] = open('README-PyPI').read()

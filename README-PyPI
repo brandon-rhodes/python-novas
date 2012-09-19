@@ -13,12 +13,14 @@ facility that can be incorporated into data reduction programs,
 telescope control systems, and simulations.  The U.S. parts of
 *The Astronomical Almanac* are prepared using NOVAS.
 
-With **NOVAS_Py**, the United States Naval Observatory now supports the
-Python programming language. This module is a wrapper around the NOVAS C
-code; all computations are performed by the C code.
+This package is the official Python wrapper for the NOVAS C code, and is
+released by the United States Naval Observatory on their own web site
+under the name **NOVAS_Py**.
 
-This package has been placed on the Python Package Index by Brandon
-Rhodes. Please contact him about any problems with installation!
+This package has been uploaded to the Python Package Index by Brandon
+Rhodes <brandon@rhodesmill.org>. Please contact him about any problems
+you encounter when trying to make it install, or ask on Stack Overflow,
+where he watches for questions that involve Python and astronomy.
 
 Installation
 ------------
@@ -28,8 +30,8 @@ package can be installed with the ``pip`` command. You will need to
 install both the library itself as well as a high-accuracy ephemeris
 data set, with the DE405 ephemeris being the current default::
 
-    $ pip install NOVAS_Py
-    $ pip install NOVAS_DE405
+    $ pip install novas
+    $ pip install novas_de405
 
 Note that the second command may take several minutes to run, depending
 on your Internet connection, because the JPL ephemeris that it has to
