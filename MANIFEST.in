@@ -1,2 +1,3 @@
+include README-PyPI
 include asc2eph.py
 include Cdist/*.h

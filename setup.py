@@ -188,6 +188,11 @@ def main():
     }
 
     # Begin customizations by Brandon Rhodes for release on PyPI
+    options['description'] = ('The United States Naval Observatory'
+                              ' NOVAS astronomy library')
+    options['long_description'] = open('README-PyPI').read()
+    options['maintainer'] = 'Brandon Rhodes'
+    options['maintainer_email'] = 'brandon@rhodesmill.org'
     options['packages'].append('novas.tests')
     options['package_dir']['novas.tests'] = 'tests'
     open('tests/__init__.py', 'w').close()

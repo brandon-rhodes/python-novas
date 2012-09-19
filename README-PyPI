@@ -1,0 +1,98 @@
+What is NOVAS?
+--------------
+
+NOVAS is an integrated package of functions for computing various
+commonly needed quantities in positional astronomy.  The package can
+supply, in one or two function calls, the instantaneous coordinates of
+any star or solar system body in a variety of coordinate systems.  At a
+lower level, NOVAS also provides astrometric utility transformations,
+such as those for precession_, nutation_, aberration_, parallax_, and
+gravitational `deflection of light`_.  The computations are accurate to
+**better than one milliarcsecond.** The NOVAS library is an easy-to-use
+facility that can be incorporated into data reduction programs,
+telescope control systems, and simulations.  The U.S. parts of
+*The Astronomical Almanac* are prepared using NOVAS.
+
+With **NOVAS_Py**, the United States Naval Observatory now supports the
+Python programming language. This module is a wrapper around the NOVAS C
+code; all computations are performed by the C code.
+
+This package has been placed on the Python Package Index by Brandon
+Rhodes. Please contact him about any problems with installation!
+
+Installation
+------------
+
+Like other packages listed here on the Python Package Index, this
+package can be installed with the ``pip`` command. You will need to
+install both the library itself as well as a high-accuracy ephemeris
+data set, with the DE405 ephemeris being the current default::
+
+    $ pip install NOVAS_Py
+    $ pip install NOVAS_DE405
+
+Note that the second command may take several minutes to run, depending
+on your Internet connection, because the JPL ephemeris that it has to
+download is 55 MB in size!
+
+If you are managing a Python project that has a ``setup.py`` or a
+``requirements.txt`` file, then instead of running these ``pip``
+commands manually you can simply list ``NOVAS_Py`` alongside the other
+packages that you depend on, and let them be installed as part of your
+normal project install.
+
+Once the package is installed, you can run its tests with the new
+test-discovery feature built-in to Python 2.7. If the tests pass to
+extremely high accuracy, then the result should be::
+
+    $ python -m unittest discover novas
+    ........................................
+    ........................................
+    ...........
+    ----------------------------------------
+    Ran 191 tests in 0.022s
+
+    OK
+
+If you are using an older version of Python, then you can run the tests
+with the ``unittest2`` compatibility package instead::
+
+    $ pip install unittest2
+    $ unit2 discover novas
+
+Using the library
+-----------------
+
+Successful installation will produce a ``novas`` package that contains
+several namespaces full of functions:
+
+``novas.compat``
+    Main NOVAS functions.
+
+``novas.constants``
+    Important constants.
+
+``novas.nutation``
+    Nutation models.
+
+``novas.compat.eph_manager``
+    Functions from the NOVAS ``eph_manager.c`` module.
+
+``novas.compat.solsys``
+    Functions from the NOVAS ``solsys1.c`` module.
+
+``novas.compat.nutation``
+    Functions from the NOVAS ``nutation.c`` module.
+
+You can find more information and documentation on the project's
+official home page at the Naval Observatory:
+
+http://aa.usno.navy.mil/software/novas/novas_py/novaspy_intro.php
+
+.. _precession: http://asa.usno.navy.mil/SecM/Glossary.html#precession
+.. _nutation: http://asa.usno.navy.mil/SecM/Glossary.html#nutation
+.. _aberration: http://asa.usno.navy.mil/SecM/Glossary.html#aberration
+.. _parallax: http://asa.usno.navy.mil/SecM/Glossary.html#parallax
+.. _deflection of light: http://asa.usno.navy.mil/SecM/Glossary.html#deflection-light
+.. _webpage: http://ssd.jpl.nasa.gov/?planet_eph_export
+.. _unittest2 module: http://pypi.python.org/pypi/unittest2
