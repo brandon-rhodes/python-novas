@@ -22,6 +22,45 @@ Rhodes <brandon@rhodesmill.org>. Please contact him about any problems
 you encounter when trying to make it install, or ask on Stack Overflow,
 where he watches for questions that involve Python and astronomy.
 
+Quick Examples
+--------------
+
+Importing the library and opening the planetary ephemeris:
+
+>>> from novas import compat as novas
+>>> from novas.compat import eph_manager
+>>> jd_start, jd_end, number = eph_manager.ephem_open()
+
+Converting a calendar date to a Julian date:
+
+>>> jd_tt = novas.julian_date(2012, 10, 2, 12.0);
+>>> jd_tt
+2456203.0
+
+Asking where Mars is located in the sky on a given date,
+in “astrometric” coordinates of the kind that are used
+in printed sky atlases:
+
+>>> dummy = novas.make_cat_entry('Dummy', 'x', 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+>>> mars = novas.make_object(0, 4, 'Mars', dummy)
+>>> ra, dec, dis = novas.astro_planet(jd_tt, mars)
+>>> print 'R.A. %d:%02f' % (ra, abs(ra) % 1. * 60.)
+R.A. 15:36.176177
+>>> print 'dec. %d:%02f' % (dec, abs(dec) % 1. * 60.)
+dec. -20:11.951841
+>>> print 'distance %f AU' % (dis,)
+distance 1.947674 AU
+
+There is more information at the `NOVAS home page`_
+and in particular a
+`full PDF manual that includes a “Sample Calculations” chapter
+<http://aa.usno.navy.mil/software/novas/novas_c/NOVAS_C3.1_Guide.pdf>`_.
+Even though the manual is for the C version,
+you can generally puzzle out how to make the same calls from Python
+if you compare the sample code
+to the way that similar calculations are done
+in the ``test`` package included inside of ``novas``!
+
 Installation
 ------------
 
@@ -93,9 +132,7 @@ several namespaces full of functions:
     Functions from the NOVAS ``nutation.c`` module.
 
 You can find more information and documentation on the project's
-official home page at the Naval Observatory:
-
-http://aa.usno.navy.mil/software/novas/novas_py/novaspy_intro.php
+official `NOVAS home page`_ at the Naval Observatory.
 
 License and Citation
 --------------------
@@ -122,3 +159,4 @@ doing by making the software available to the public.
 .. _deflection of light: http://asa.usno.navy.mil/SecM/Glossary.html#deflection-light
 .. _webpage: http://ssd.jpl.nasa.gov/?planet_eph_export
 .. _unittest2 module: http://pypi.python.org/pypi/unittest2
+.. _NOVAS home page: http://aa.usno.navy.mil/software/novas/novas_py/novaspy_intro.php
