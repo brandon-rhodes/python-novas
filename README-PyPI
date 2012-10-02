@@ -39,9 +39,9 @@ download is 55 MB in size!
 
 If you are managing a Python project that has a ``setup.py`` or a
 ``requirements.txt`` file, then instead of running these ``pip``
-commands manually you can simply list ``NOVAS_Py`` alongside the other
-packages that you depend on, and let them be installed as part of your
-normal project install.
+commands manually you can simply list these two package names alongside
+the other packages that you depend on, and let them be installed as part
+of your normal project install.
 
 Once the package is installed, you can run its tests with the new
 test-discovery feature built-in to Python 2.7. If the tests pass to
