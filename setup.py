@@ -192,6 +192,9 @@ def main():
     options['description'] = ('The United States Naval Observatory'
                               ' NOVAS astronomy library')
     options['long_description'] = open('README-PyPI').read()
+    options['maintainer'] = (options['author'] +
+                             '; packaged for PyPI by Brandon Rhodes')
+    options['maintainer_email'] = 'brandon@rhodesmill.org'
     options['packages'].append('novas.tests')
     options['package_dir']['novas.tests'] = 'tests'
     del options['download_url']
