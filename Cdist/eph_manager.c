@@ -321,6 +321,10 @@ short int ephem_close (void)
    if (EPHFILE)
    {
       error =  (short int) fclose (EPHFILE);
+      // Fix applied by Brandon Rhodes 2012 Oct 2
+      // From http://aa.usno.navy.mil/software/novas/novas_faq.php
+      EPHFILE = NULL; // new line, reset pointer
+      // End fix
       free (BUFFER);
    }
    return error;
