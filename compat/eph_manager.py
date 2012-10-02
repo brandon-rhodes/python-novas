@@ -81,6 +81,19 @@ def ephem_open(ephem_name=None):
 
     return jd_begin.value, jd_end.value, de_number.value
 
+# Function added at user request by Brandon Rhodes 2012 Oct 2
+def ephem_close():
+    """
+    This function closes a JPL planetary ephemeris file and frees the memory.
+
+    *References*
+        .. [R1] Standish, E.M. and Newhall, X X (1988). "The JPL Export
+            Planetary Ephemeris"; JPL document dated 17 June 1988.
+
+    """
+    novaslib.ephem_close()
+# End added function
+
 def planet_ephemeris(tjd, target, center):
     """
     This function accesses the JPL planetary ephemeris to give the
