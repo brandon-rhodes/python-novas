@@ -43,6 +43,9 @@ commands manually you can simply list these two package names alongside
 the other packages that you depend on, and let them be installed as part
 of your normal project install.
 
+Sanity check: running the tests
+-------------------------------
+
 Once the package is installed, you can run its tests with the new
 test-discovery feature built-in to Python 2.7. If the tests pass to
 extremely high accuracy, then the result should be::
@@ -62,8 +65,11 @@ with the ``unittest2`` compatibility package instead::
     $ pip install unittest2
     $ unit2 discover novas
 
-Using the library
------------------
+Running the tests this way should also result in a pretty field of dots,
+followed by the message “OK.”
+
+Contents and Documentation
+--------------------------
 
 Successful installation will produce a ``novas`` package that contains
 several namespaces full of functions:
