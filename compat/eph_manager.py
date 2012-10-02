@@ -211,8 +211,8 @@ def state(jed, target):
 
     """
 
-    if tjd[0] + tjd[1] < 0:
-        raise ValueError(_neg_err % {'name': 'tjd[0]+tjd[1]'})
+    if jed[0] + jed[1] < 0:
+        raise ValueError(_neg_err % {'name': 'jed[0]+jed[1]'})
     if target not in range(0, 11):
         raise ValueError(_option_err % {'name': 'target',
                                         'allowed': range(0, 11)})
