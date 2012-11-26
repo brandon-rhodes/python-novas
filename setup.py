@@ -150,7 +150,7 @@ def main():
 
     options = {
         'name': 'NOVAS_Py',
-        'version': '3.1',
+        'version': '3.1.1',
         'description': "Python wrappers for the US Naval Observatory's \
                         NOVAS-C package.",
         'author': 'Eric G. Barron',
@@ -172,6 +172,8 @@ def main():
             'Operating System :: POSIX :: Linux',
             'Programming Language :: Python :: 2.6',
             'Programming Language :: Python :: 2.7',
+            'Programming Language :: Python :: 3.2',
+            'Programming Language :: Python :: 3.3',
             'Topic :: Scientific/Engineering :: Astronomy',
         ],
 

@@ -33,7 +33,7 @@ Importing the library and opening the planetary ephemeris:
 
 Converting a calendar date to a Julian date:
 
->>> jd_tt = novas.julian_date(2012, 10, 2, 12.0);
+>>> jd_tt = novas.julian_date(2012, 10, 2, 12.0)
 >>> jd_tt
 2456203.0
 
@@ -41,8 +41,7 @@ Asking where Mars is located in the sky on a given date,
 in “astrometric” coordinates of the kind that are used
 in printed sky atlases:
 
->>> dummy = novas.make_cat_entry('Dummy', 'x', 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
->>> mars = novas.make_object(0, 4, 'Mars', dummy)
+>>> mars = novas.make_object(0, 4, 'Mars', None)
 >>> ra, dec, dis = novas.astro_planet(jd_tt, mars)
 >>> print 'R.A. %d:%02f' % (ra, abs(ra) % 1. * 60.)
 R.A. 15:36.176177
@@ -133,6 +132,28 @@ several namespaces full of functions:
 
 You can find more information and documentation on the project's
 official `NOVAS home page`_ at the Naval Observatory.
+
+Changelog
+---------
+
+Version 3.1.1 — 2012 November 25
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Several improvements now take this version of the library beyond the
+Naval Observatory's official “3.1” on which this release is based:
+Python 3 compatibility; Python access to the ``ephem_close()`` routine
+inside the ``eph_manager`` module; a fix for the ``eph_manager.state()``
+function, which previously would always raise an exception if invoked;
+and both C code fixes recommended in the `NOVAS FAQ`_, one that changes
+the ``eph_manager.c`` file, and the other that changes the ``novas.c``
+file.
+
+.. _NOVAS FAQ: http://aa.usno.navy.mil/software/novas/novas_faq.php
+
+Version 3.1 — 2012 September 19
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Initial release of the library on the Python Package Index.
 
 License and Citation
 --------------------
