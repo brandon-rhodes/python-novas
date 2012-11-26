@@ -2,6 +2,15 @@
 
 from ctypes import *
 from novas import novaslib
+import sys
+
+if sys.version_info > (3, 0):
+    # By Brandon Rhodes for Python 3 compatibility:
+    from ctypes import create_string_buffer as real_create_string_buffer
+    def create_string_buffer(string, length):
+        """Reduce a string to bytes that can be handed off to C code."""
+        string = string.encode()
+        return real_create_string_buffer(string, length)
 
 class CatEntry(Structure):
     _fields_ = [

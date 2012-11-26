@@ -75,8 +75,9 @@ class TestCalendarFunctions(unittest.TestCase):
 class MakeObjectFunctions(unittest.TestCase):
     def test_make_cat_entry(self):
         self.star = make_cat_entry('GMB 1830', 'FK6', 1307, 11.88299133, 37.71867646, 4003.27, -5815.07, 109.21, -98.8)
-        self.assertEqual(self.star.starname, 'GMB 1830')
-        self.assertEqual(self.star.catalog, 'FK6')
+        # These two .encode() calls by Brandon Rhodes for Python 3:
+        self.assertEqual(self.star.starname, 'GMB 1830'.encode())
+        self.assertEqual(self.star.catalog, 'FK6'.encode())
         self.assertEqual(self.star.starnumber, 1307)
         self.assertEqual(self.star.ra, 11.88299133)
         self.assertEqual(self.star.dec, 37.71867646)

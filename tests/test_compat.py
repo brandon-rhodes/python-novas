@@ -19,7 +19,8 @@ from novas.compat import *
 class TestPlace(unittest.TestCase):
     def setUp(self):
         self.jd_tt = 2455519.5
-        self.cel_object = make_object(2, 0, "Polaris", CatEntry("POLARIS", "HIP", 0, 2.530301028, 89.264109444, 44.22, -11.75, 7.56, -17.4))
+        # These two .encode() calls by Brandon Rhodes for Python 3:
+        self.cel_object = make_object(2, 0, "Polaris", CatEntry("POLARIS".encode(), "HIP".encode(), 0, 2.530301028, 89.264109444, 44.22, -11.75, 7.56, -17.4))
         self.location = make_observer_on_surface(45.0, -75.0, 0.0, 10.0, 1010.0)
         self.delta_t = 67.0
         self.system = 0
