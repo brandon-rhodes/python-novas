@@ -8,7 +8,7 @@ if sys.version_info < (2, 7):
     try:
         import unittest2 as unittest
     except ImportError:
-        print "Running these tests with Python 2.5 or 2.6 requires the unittest2 module"
+        print("Running these tests with Python 2.5 or 2.6 requires the unittest2 module")
         raise
 else:
     import unittest

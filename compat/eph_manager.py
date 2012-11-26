@@ -55,7 +55,7 @@ def ephem_open(ephem_name=None):
             pass
         else:
             directory = os.path.dirname(novas_de405.__file__)
-            ephem_name = os.path.join(directory, 'DE405.bin')
+            ephem_name = os.path.join(directory, 'DE405.bin').encode('utf-8')
     # End customizations by Brandon Rhodes for release on PyPI
 
     if ephem_name is None:

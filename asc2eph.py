@@ -12,7 +12,7 @@ def download_ascii(ascii_dir, de_number, verbose=True):
     files = []
     
     if verbose:
-        print "Retrieving list of ephemeris files"
+        print("Retrieving list of ephemeris files")
 
     jpl = ftplib.FTP('ssd.jpl.nasa.gov')
     jpl.login()
@@ -22,7 +22,7 @@ def download_ascii(ascii_dir, de_number, verbose=True):
     for filename in [file.split()[-1] for file in files]:
         filelines = []
         if verbose:
-            print "Downloading ASCII ephemeris file %s" % filename
+            print("Downloading ASCII ephemeris file %s" % filename)
         jpl.retrlines('RETR %s' % filename, filelines.append)
         outfile = open(os.path.join(ascii_dir, filename), 'w')
         for line in filelines:
@@ -95,7 +95,7 @@ def process_data_files(data_files, ncoeff, binary_file, verbose=True):
     
     for file in data_files:
         if verbose:
-            print "Processing ASCII ephemeris file %s" % os.path.split(file)[-1]
+            print("Processing ASCII ephemeris file %s" % os.path.split(file)[-1])
         with open(file, 'r') as data_file:
             for line in data_file:
                 if len(line.split()) == 2:
