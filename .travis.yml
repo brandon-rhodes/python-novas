@@ -8,7 +8,8 @@ python:
   #- 3.3
 
 install:
-  - pip install unittest2
+  #- pip install unittest2
+  - pip install novas_de405
   - python setup.py install
 
 script:
