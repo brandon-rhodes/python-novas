@@ -13,14 +13,22 @@ facility that can be incorporated into data reduction programs,
 telescope control systems, and simulations.  The U.S. parts of
 *The Astronomical Almanac* are prepared using NOVAS.
 
-This package is the official Python wrapper for the NOVAS C code, and is
-released by the United States Naval Observatory on their own web site
-under the name **NOVAS_Py**.
+This Python package includes both the NOVAS library and the Python
+wrapper that are available from the `NOVAS home page`_ at the United
+States Naval Observatory.  This version includes a few bug fixes and
+packaging adjustments that are not in the most recent June 2011
+release of the software from the Naval Observatory itself.  You can
+find these changes described at the bottom of this page in the
+Changelog, and you can also review them yourself at the `project
+repository on GitHub`_.
 
 This package has been uploaded to the Python Package Index by Brandon
-Rhodes <brandon@rhodesmill.org>. Please contact him about any problems
-you encounter when trying to make it install, or ask on Stack Overflow,
-where he watches for questions that involve Python and astronomy.
+Rhodes <brandon@rhodesmill.org>.  Please contact me, and not the busy
+folks at the Naval Observatory, about any problems you encounter when
+trying to install it — any problems with how it has been packaged are
+my fault, not theirs!  For questions about how to use the library, you
+can also ask for help on Stack Overflow, where I watch for questions
+that involve Python and astronomy.
 
 Quick Examples
 --------------
@@ -139,16 +147,21 @@ Changelog
 Version 3.1.1 — 2012 November 25
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Several improvements now take this version of the library beyond the
-Naval Observatory's official “3.1” on which this release is based:
-Python 3 compatibility; Python access to the ``ephem_close()`` routine
-inside the ``eph_manager`` module; a fix for the ``eph_manager.state()``
-function, which previously would always raise an exception if invoked;
-and both C code fixes recommended in the `NOVAS FAQ`_, one that changes
-the ``eph_manager.c`` file, and the other that changes the ``novas.c``
-file.
+The Naval Observatory has not released a new version of NOVAS since
+June 2011, but reports and requests from users convinced me to make
+several small fixes to the code and make an interim release here on
+the Python Package Index:
 
-.. _NOVAS FAQ: http://aa.usno.navy.mil/software/novas/novas_faq.php
+* The library is now Python 3 compatible!
+* Python code can now access the ``ephem_close()`` routine inside the
+  ``eph_manager`` module.
+* Bugfix: the ``eph_manager.state()`` function was always raising an
+  exception if invoked.
+* Bugfix: to ``eph_manager.c`` as recommended in the `NOVAS FAQ`_.
+* Bugfix: to ``novas.c`` as recommended in the `NOVAS FAQ`_.
+
+To examine the code changes yourself, you can visit the `project
+repository on GitHub`_.
 
 Version 3.1 — 2012 September 19
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -181,3 +194,5 @@ doing by making the software available to the public.
 .. _webpage: http://ssd.jpl.nasa.gov/?planet_eph_export
 .. _unittest2 module: http://pypi.python.org/pypi/unittest2
 .. _NOVAS home page: http://aa.usno.navy.mil/software/novas/novas_py/novaspy_intro.php
+.. _NOVAS FAQ: http://aa.usno.navy.mil/software/novas/novas_faq.php
+.. _project repository on GitHub: https://github.com/brandon-rhodes/python-novas
