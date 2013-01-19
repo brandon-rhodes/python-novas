@@ -3066,7 +3066,7 @@ def limb_angle(pos_obj, pos_obs):
     limb_ang = c_double()
     nadir_ang = c_double()
 
-    _limb_angle = ((c_double*3)(*pos_obj), (c_double*3)(*pos_obs),
+    _limb_angle ((c_double*3)(*pos_obj), (c_double*3)(*pos_obs),
                    byref(limb_ang), byref(nadir_ang))
 
     return limb_ang.value, nadir_ang.value
