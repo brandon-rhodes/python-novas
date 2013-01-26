@@ -3066,7 +3066,7 @@ def limb_angle(pos_obj, pos_obs):
     limb_ang = c_double()
     nadir_ang = c_double()
 
-    _limb_angle = ((c_double*3)(*pos_obj), (c_double*3)(*pos_obs),
+    _limb_angle ((c_double*3)(*pos_obj), (c_double*3)(*pos_obs),
                    byref(limb_ang), byref(nadir_ang))
 
     return limb_ang.value, nadir_ang.value
@@ -3169,7 +3169,7 @@ def julian_date(year, month, day, hour=0.0):
 
     return jd
 
-def cal_date(day):
+def cal_date(jd):
     """
     Return the Gregorian date for a given Julian day.
     
@@ -3193,7 +3193,7 @@ def cal_date(day):
     
     """
 
-    if day < 0.0: raise ValueError(_neg_err % {'name': 'day'})
+    if jd < 0.0: raise ValueError(_neg_err % {'name': 'jd'})
 
     _cal_date = novaslib.cal_date
     _cal_date.argtypes = (c_double, POINTER(c_short), POINTER(c_short),
@@ -3205,7 +3205,7 @@ def cal_date(day):
     day = c_short()
     hour = c_double()
 
-    _cal_date(day, byref(year), byref(month), byref(day), byref(hour))
+    _cal_date(jd, byref(year), byref(month), byref(day), byref(hour))
 
     return year.value, month.value, day.value, hour.value
 
