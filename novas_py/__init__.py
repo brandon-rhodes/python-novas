@@ -17,4 +17,14 @@ for directory in sys.path:
 		novaslib = CDLL(os.path.join(directory, 'novas', libname))
 		break
 	except:
-		pass
+		# Also by Brandon Rhodes, for platforms where the SOABI
+		# under Python 3 has a different value than the one used
+		# to name the .so
+		if libname.endswith('-33dm.so'):
+			altname = libname.replace('-33dm.so', '-33m.so')
+			try:
+				novaslib = CDLL(os.path.join(
+                                                directory, 'novas', altname))
+				break
+			except:
+				pass
