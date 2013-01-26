@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import codecs
 import os
 import platform
 from distutils.core import setup, Extension
@@ -193,7 +194,8 @@ def main():
     options['name'] = 'novas'
     options['description'] = ('The United States Naval Observatory'
                               ' NOVAS astronomy library')
-    options['long_description'] = open('README-PyPI').read()
+    options['long_description'] = (codecs.open('README-PyPI', 'r', 'utf-8')
+                                   .read())
     options['maintainer'] = (options['author'] +
                              '; packaged for PyPI by Brandon Rhodes')
     options['maintainer_email'] = 'brandon@rhodesmill.org'
