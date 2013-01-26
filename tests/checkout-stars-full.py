@@ -6,8 +6,9 @@ from novas.compat.eph_manager import ephem_open
 
 jd_begin, jd_end, de_number = ephem_open()
 
-print "JPL Ephemeris DE%i open. jd_beg = %9.2f  jd_end = %9.2f\n" % \
+print("JPL Ephemeris DE%i open. jd_beg = %9.2f  jd_end = %9.2f\n" %
     (de_number, jd_begin, jd_end)
+    )
 
 deltat = 60.0
 
@@ -25,5 +26,5 @@ for date in tjds:
 	for star in stars:
 		ra, dec = topo_star(date, deltat, star, geo_loc)
 
-		print "JD = %14.6f  Star = %s" % (date, star.starname)
-		print "RA = % 12.9f  Dec = % 12.8f\n" % (ra, dec)
+		print("JD = %14.6f  Star = %s" % (date, star.starname))
+		print("RA = % 12.9f  Dec = % 12.8f\n" % (ra, dec))
