@@ -144,6 +144,19 @@ official `NOVAS home page`_ at the Naval Observatory.
 Changelog
 ---------
 
+Version 3.1.1.1 — 2013 March 2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Further fixes have been provided by users, so I am making this interim
+release while the official version still sits at 3.1.
+
+* Leo Singer fixed the wrappers for ``cal_date()`` and ``limb_angle()``
+  so these two NOVAS functions can now be used from Python code.
+* The example test file ``checkout-stars-full.py`` now uses syntax
+  compatible with Python 3, eliminating a warning during install.
+* The ``setup.py`` now specifies the encoding for this readme, so the
+  package can install on systems where UTF-8 is not the default.
+
 Version 3.1.1 — 2012 November 25
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
