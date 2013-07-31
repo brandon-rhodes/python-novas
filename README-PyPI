@@ -144,6 +144,15 @@ official `NOVAS home page`_ at the Naval Observatory.
 Changelog
 ---------
 
+Version 3.1.1.2 — 2013 July 31
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* The top-level ``__init__.py`` now attempts to load the NOVAS C library
+  from several different filenames under Python 3, instead of only
+  trying filenames with an ABI identifier.  (On my Ubuntu 13.04 laptop,
+  Python 3.3 is *not* in fact including such an identifier, which was
+  causing an ``ImportError: cannot import name novaslib`` failure.)
+
 Version 3.1.1.1 — 2013 March 2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
