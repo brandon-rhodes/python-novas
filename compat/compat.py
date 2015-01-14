@@ -246,7 +246,7 @@ def astro_star(jd_tt, star, accuracy=0):
     ra = c_double()
     dec = c_double()
 
-    return_value = _astro_star(jd_tt, byref(star), c_short,
+    return_value = _astro_star(jd_tt, byref(star), accuracy,
                                byref(ra), byref(dec))
 
     return (ra.value, dec.value)
