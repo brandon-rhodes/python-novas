@@ -2715,7 +2715,7 @@ def cio_location(jd_tdb, accuracy=0):
     _cio_location.restype = c_short
 
     ra_cio = c_double()
-    ref_sys - c_short()
+    ref_sys = c_short()
 
     return_value = _cio_location(jd_tdb, accuracy, byref(ra_cio),
                                  byref(ref_sys))
