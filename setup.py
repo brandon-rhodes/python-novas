@@ -203,9 +203,6 @@ def main():
     options['packages'].append('novas.tests')
     options['package_dir']['novas.tests'] = 'tests'
     del options['download_url']
-    open('tests/__init__.py', 'w').close()
-    import atexit
-    atexit.register(os.remove, 'tests/__init__.py')
     # End customizations by Brandon Rhodes for release on PyPI
 
     setup(**options)
