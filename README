@@ -1,11 +1,12 @@
+###################
 Welcome to NOVAS Py
-===================
+###################
 
 What is NOVAS?
---------------
+==============
 
 NOVAS is an integrated package of functions for computing various
-commonly needed quantities in positional astronomy.  The package can
+commonly needed quantities in positional astronomy. The package can
 supply, in one or two function calls, the instantaneous coordinates of
 any star or solar system body in a variety of coordinate systems.  At a
 lower level, NOVAS also provides astrometric utility transformations,
@@ -17,47 +18,37 @@ telescope control systems, and simulations.  The U.S. parts of
 *The Astronomical Almanac* are prepared using NOVAS.
 
 What is NOVAS Py?
------------------
+=================
 
 With NOVAS Py, the USNO is expanding NOVAS to the Python programming
-language. The NOVAS Py module is a wrapper around the NOVAS C code; all
-computations are performed by the C code.
+language. The NOVAS Py module is simply a wrapper around the NOVAS C code;
+*all computations are still performed by the C code*. NOVAS Py makes use of
+Python's `ctypes module`_.
 
 Installation
-------------
+============
 
 The NOVAS Py Module
-^^^^^^^^^^^^^^^^^^^
+-------------------
 
 The NOVAS Py module is installed from the top-level source directory
-with the command ``python setup.py install``.  If there are multiple
+with the command ``python setup.py install``. If there are multiple
 versions of Python installed, the NOVAS Py package will be installed for
-the version used to run the ``setup.py`` script.  Note that you may need
+the version used to run the ``setup.py`` script. Note that you may need
 superuser or administrator privileges to install the package.
 
 Ephemerides
-^^^^^^^^^^^
+-----------
 
 NOVAS requires access to a high-accuracy solar system ephemeris in order
 to compute places of solar system bodies and the highest-accuracy star
 places. Groups in the U.S., France, and Russia now construct
-high-accuracy solar system ephemerides. NOVAS uses the "developmental
+high-accuracy solar system ephemerides. NOVAS is able to use solar system
+ephemerides that use JPL's export format, for example, the "developmental
 ephemerides," designated as "DEnnn", which are produced by JPL in the
 U.S. NOVAS C provides an implementation of JPL's ephemeris-access
 software that enables reading and interpolating a binary, direct-access
 ephemeris file.
-
-The command ``python setup.py build_ephemeris`` will automatically build
-a default DE405 binary ephemeris file and place it in your current
-directory. If you wish to have the setup script place the ephemeris file
-in a directory other than your current directory, for instance where you
-wish to more permanently keep the ephemeris file, use the
-``--ephemeris-dir`` option with the path to the other directory.  This
-automatic ephemeris build process requires an internet connection and
-may take some time due to the program downloading multiple files, each
-several megabytes in size, from JPL's ftp site. This step is optional;
-users who wish to provide their own ephemeris file may skip the
-``build_ephemeris`` command.
 
 Before using any NOVAS functionality that requires access to the
 ephemerides, you must first open the file with the ``ephem_open``
@@ -67,12 +58,13 @@ wish to use or have the path set in an environment variable named
 ``EPHEMERIS_FILE``. If you choose to do the latter, you may then call
 ``ephem_open`` without passing any arguments to the function.
 
-Consult the NOVAS C User Guide if you wish to use the manual method for
-creating the binary ephemeris file.
+Consult the NOVAS C User Guide for directions on how to create the binary
+ephemeris file.
 
 Package Layout
-^^^^^^^^^^^^^^
-Phase one of NOVAS Py is intented to feel like NOVAS C. For the most
+--------------
+
+Phase one of NOVAS Py is intended to feel like NOVAS C. For the most
 part, function calls in Python match the function calls in C. All
 results are returned from the function. Some function inputs have been
 reordered so that the function can support optional inputs.
@@ -82,14 +74,37 @@ Functions from ``eph_manager.c``, ``solsys1.c``, and ``nutation.c`` can
 be found under ``novas.compat.eph_manager``, ``novas.compat.solsys``,
 and ``novas.compat.nutation``, respectively.
 
+Note on constants
+=================
+
+NOVAS Py includes a constants file copied from the NOVAS C constants file; this
+is only provided for consistency with the NOVAS C package. Since the wrapped
+NOVAS C functions are where the constants are used, and those functions obtain
+the constants from the NOVAS C constants file, any changes to constants in the
+NOVAS Py constants file will have no effect.
+
+Notes on error handling
+=======================
+
+Error return codes from NOVAS C functions are handled by raising an
+appropriate exception. However, given the way NOVAS C does error codes,
+it was found that some return codes from higher-level C functions can
+represent more than one error. For these cases the developer choose what was
+felt to be the most likely or most important error code to escalate to an
+exception. All possible error codes are in the ``c_error`` dictionaries
+attached to each C function object, within each wrapper function, but those
+with duplicate numbers are commented out at this time.
+
 Tests
------
+=====
+
 Some tests are available in the ``tests`` source directory; they are
 designed to work with Python >= 2.7. To run the tests with Python 2.5 or
 2.6, first install the `unittest2 module`_
 
 Using NOVAS Py
---------------
+==============
+
 Once installation is complete, the NOVAS functions can be found under
 the ``novas.compat`` namespace. Nutation models can be found under
 ``novas.nutation``, and constants under ``novas.constants``.
@@ -99,5 +114,6 @@ the ``novas.compat`` namespace. Nutation models can be found under
 .. _aberration: http://asa.usno.navy.mil/SecM/Glossary.html#aberration
 .. _parallax: http://asa.usno.navy.mil/SecM/Glossary.html#parallax
 .. _deflection of light: http://asa.usno.navy.mil/SecM/Glossary.html#deflection-light
+.. _ctypes: https://docs.python.org/3.4/library/ctypes.html
 .. _webpage: http://ssd.jpl.nasa.gov/?planet_eph_export
 .. _unittest2 module: http://pypi.python.org/pypi/unittest2

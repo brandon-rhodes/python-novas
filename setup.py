@@ -8,7 +8,7 @@ from distutils.core import Command
 from distutils.command.build_clib import build_clib
 from distutils.sysconfig import get_python_lib
 from distutils import log
-from asc2eph import *
+from asc2eph import download_ascii, process_header, process_data_files
 
 class build_dynamic_clib(build_clib):
     def finalize_options (self):
@@ -60,17 +60,18 @@ class build_dynamic_clib(build_clib):
         log.info('running build_dynamic_clib')
         build_clib.run(self)
 
+
 class build_ephemeris(Command):
     description = 'build a default DE405 binary for installation with the \
                    NOVAS Py package'
-    
+
     user_options = [
         ('build-temp=', 't',
          'temporary build directory'),
         ('ephemeris-dir=', 'e',
          'ephemeris file directory')
     ]
-    
+
     def initialize_options(self):
         self.build_temp = None
         self.ephemeris_dir = None
@@ -80,13 +81,13 @@ class build_ephemeris(Command):
             build = self.get_finalized_command('build')
             self.build_temp = os.path.join(build.build_temp, 'ephemeris')
             self.mkpath(self.build_temp)
-            
+
         if self.ephemeris_dir is None:
             self.ephemeris_dir = calling_dir
         else:
             self.mkpath(os.path.abspath(os.path.join(calling_dir,
                                                      self.ephemeris_dir)))
-        
+
     def create_ephemeris(self, de_number=405):
         try:
             download_ascii(self.build_temp, de_number)
@@ -100,10 +101,11 @@ class build_ephemeris(Command):
             binary_file.close()
         finally:
             pass
-    
+
     def run(self):
         log.info('running build_ephemeris')
         self.create_ephemeris()
+
 
 c_sources = [
     'Cdist/solsys1.c',
@@ -151,7 +153,7 @@ def main():
 
     options = {
         'name': 'NOVAS_Py',
-        'version': '3.1.1.3',
+        'version': '3.1.1',
         'description': "Python wrappers for the US Naval Observatory's \
                         NOVAS-C package.",
         'author': 'Eric G. Barron',
@@ -171,10 +173,9 @@ def main():
             'Natural Language :: English',
             'Operating System :: MacOS :: MacOS X',
             'Operating System :: POSIX :: Linux',
-            'Programming Language :: Python :: 2.6',
             'Programming Language :: Python :: 2.7',
-            'Programming Language :: Python :: 3.2',
             'Programming Language :: Python :: 3.3',
+            'Programming Language :: Python :: 3.4',
             'Topic :: Scientific/Engineering :: Astronomy',
         ],
 
@@ -186,12 +187,12 @@ def main():
         'libraries': novaslib,
         'cmdclass': {
             'build_clib': build_dynamic_clib,
-            'build_ephemeris': build_ephemeris
         }
     }
 
     # Begin customizations by Brandon Rhodes for release on PyPI
     options['name'] = 'novas'
+    options['version'] = '3.1.1.4'
     options['description'] = ('The United States Naval Observatory'
                               ' NOVAS astronomy library')
     options['long_description'] = (codecs.open('README-PyPI', 'r', 'utf-8')

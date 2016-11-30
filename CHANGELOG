@@ -1,0 +1,47 @@
+#########
+Changelog
+#########
+
+
+Version 3.1
+===========
+
+Initial release; version numbering chosen to match version numbering of
+NOVAS F and NOVAS C.
+
+
+Version 3.1.1
+=============
+
+Bug fixes
+---------
+* In function ``astro_star``: fixed issue where the third argument of the
+    C function call was ``c_short`` instead of the intended ``accuracy``.
+* In function ``transform_cat``: fixed issue where ``newcat_id`` was being sent
+    to the C function as a length-51 character array instead of a length-4
+    character array.
+* In function ``limb_angle``: fixed issue of an extra ``=`` in call to
+    C function.
+* In function ``cal_date``: fixed issue where ``day`` was used in two places
+    (input and local variable); input argument is now called ``jd``.
+* In function ``state``: fixed issue in statement that checks for negative JD;
+    changed ``tjd`` to ``jed``.
+
+Error handling
+--------------
+Added C function error handling. Error return codes from NOVAS C functions are
+handled by raising an appropriate exception. However, given the way NOVAS C
+does error codes it was found that some return codes from higher-level
+C functions can represent more than one error. For these cases the developer
+chose what was felt to be the most likely or most important error code to
+escalate to an exception. All possible error codes are in the ``c_error``
+dictionaries attached to each C function object, within each wrapper function,
+but those with duplicate numbers are commented out at this time.
+
+Miscellaneous
+-------------
+* The package should now work with Python 3.
+* Improved docstring formatting.
+* Changed the output formatting of ``checkout-stars-full.py`` test script to
+    match the output formatting of the C version
+    (``checkout-stars-full-usno.txt``).

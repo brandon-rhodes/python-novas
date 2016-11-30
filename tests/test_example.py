@@ -1,18 +1,8 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import sys
-if sys.version_info < (2, 7):
-    try:
-        import unittest2 as unittest
-    except ImportError:
-        print("Running these tests with Python 2.5 or 2.6 requires the unittest2 module")
-        raise
-else:
-    import unittest
+import unittest
 
 from math import sqrt, sin, cos
-from novas import novaslib
 from novas.compat import *
 from novas.compat.eph_manager import ephem_open
 from novas.constants import T0, DEG2RAD
@@ -45,9 +35,11 @@ y_pole = +0.529
 
 #jd_tdb = jd_tt # approximation good to 0.0017 seconds
 
+
 class TestCalendarFunctions(unittest.TestCase):
     def setUp(self):
         self.jd_utc = julian_date(year, month, day, hour)
+        self.year_utc, self.month_utc, self.day_utc, self.hour_utc = cal_date(2454580.941875)
         self.jd_tt = self.jd_utc + (leap_secs + 32.184) / 86400.0
         self.jd_ut1 = self.jd_utc + ut1_utc / 86400.0
         self.delta_t = 32.184 + leap_secs - ut1_utc
@@ -57,7 +49,13 @@ class TestCalendarFunctions(unittest.TestCase):
         self.assertAlmostEqual(self.jd_utc, 2454580.941875, 6)
         self.assertAlmostEqual(self.jd_tt, 2454580.942629, 6)
         self.assertAlmostEqual(self.jd_ut1, 2454580.941871, 6)
-        
+
+    def test_cal_date_result(self):
+        self.assertEqual(self.year_utc, 2008)
+        self.assertEqual(self.month_utc, 4)
+        self.assertEqual(self.day_utc, 24)
+        self.assertAlmostEqual(self.hour_utc, 10.605, 3)
+
     def test_sidereal_time_result(self):
         self.gast = sidereal_time(self.jd_ut1, 0.0, self.delta_t, 1, 1, accuracy)
         self.last = self.gast + self.geo_loc.longitude / 15.0
@@ -72,10 +70,10 @@ class TestCalendarFunctions(unittest.TestCase):
         self.theta = era(self.jd_ut1, 0.0)
         self.assertAlmostEqual(self.theta, 11.7956158462, 10)
 
+
 class MakeObjectFunctions(unittest.TestCase):
     def test_make_cat_entry(self):
         self.star = make_cat_entry('GMB 1830', 'FK6', 1307, 11.88299133, 37.71867646, 4003.27, -5815.07, 109.21, -98.8)
-        # These two .encode() calls by Brandon Rhodes for Python 3:
         self.assertEqual(self.star.starname, 'GMB 1830'.encode())
         self.assertEqual(self.star.catalog, 'FK6'.encode())
         self.assertEqual(self.star.starnumber, 1307)
@@ -107,6 +105,7 @@ class TestStarFunctions(unittest.TestCase):
         self.rat, self.dect = topo_star(self.jd_tt, self.delta_t, self.star, self.geo_loc, accuracy)
         self.assertAlmostEqual(self.rat, 11.8915479153, 10)
         self.assertAlmostEqual(self.dect, 37.6586695456, 10)
+
 
 class TestPlanetFunctions(unittest.TestCase):
     def setUp(self):
@@ -147,6 +146,7 @@ class TestPlanetFunctions(unittest.TestCase):
         self.assertAlmostEqual(self.elon, 148.0032235906, 10)
         self.assertAlmostEqual(self.elat, 1.8288284075, 10)
         self.assertAlmostEqual(self.r, 1.664218258879, 10)
+
 
 class TestCoordinateTransformFunctions(unittest.TestCase):
     def setUp(self):
