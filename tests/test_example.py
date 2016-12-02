@@ -7,6 +7,12 @@ from novas.compat import *
 from novas.compat.eph_manager import ephem_open
 from novas.constants import T0, DEG2RAD
 
+try:
+    import novas_de405
+except ImportError:
+    raise Exception('please run `pip install novas_de405` before running'
+                    ' these tests')
+
 jd_begin, jd_end, de_number = ephem_open()
 
 year = 2008
