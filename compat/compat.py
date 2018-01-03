@@ -2016,8 +2016,8 @@ def cel_pole(tjd, type, dpole1, dpole2):
 
     if tjd < 0.0:
         raise ValueError(_neg_err.format(name='tjd'))
-    if type not in [0, 1]:
-        raise ValueError(_option_err.format(name='type', allowed=[0, 1]))
+    if type not in [1, 2]:
+        raise ValueError(_option_err.format(name='type', allowed=[1, 2]))
 
     _cel_pole = novaslib.celpole
     _cel_pole.argtypes = (ctypes.c_double, ctypes.c_short, ctypes.c_double, ctypes.c_double)
