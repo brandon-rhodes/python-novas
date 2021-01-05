@@ -2,6 +2,16 @@
 Welcome to NOVAS Py
 ###################
 
+.. important::
+
+   This GitHub repository is merely a mirror of this official United
+   States Naval Observatory software library, with the code tweaked to
+   make possible its release on the Python Package Index as the `novas
+   package`_.  None of the library’s actual authors are involved with
+   this repository.  Its official documentation is here:
+
+   * `User’s Guide to NOVAS`_
+
 What is NOVAS?
 ==============
 
@@ -23,7 +33,7 @@ What is NOVAS Py?
 With NOVAS Py, the USNO is expanding NOVAS to the Python programming
 language. The NOVAS Py module is simply a wrapper around the NOVAS C code;
 *all computations are still performed by the C code*. NOVAS Py makes use of
-Python's `ctypes module`_.
+Python's `ctypes`_ module.
 
 Installation
 ============
@@ -109,6 +119,8 @@ Once installation is complete, the NOVAS functions can be found under
 the ``novas.compat`` namespace. Nutation models can be found under
 ``novas.nutation``, and constants under ``novas.constants``.
 
+.. _novas package: https://pypi.org/project/novas/
+.. _User’s Guide to NOVAS: https://github.com/brandon-rhodes/python-novas/raw/master/Cdist/NOVAS_C3.1_Guide.pdf
 .. _precession: http://asa.usno.navy.mil/SecM/Glossary.html#precession
 .. _nutation: http://asa.usno.navy.mil/SecM/Glossary.html#nutation
 .. _aberration: http://asa.usno.navy.mil/SecM/Glossary.html#aberration
@@ -116,4 +128,4 @@ the ``novas.compat`` namespace. Nutation models can be found under
 .. _deflection of light: http://asa.usno.navy.mil/SecM/Glossary.html#deflection-light
 .. _ctypes: https://docs.python.org/3.4/library/ctypes.html
 .. _webpage: http://ssd.jpl.nasa.gov/?planet_eph_export
-.. _unittest2 module: http://pypi.python.org/pypi/unittest2
+.. _unittest2 module: https://pypi.org/project/unittest2/

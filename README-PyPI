@@ -1,3 +1,17 @@
+
+Welcome
+-------
+
+This is United States Naval Observatory software, which they have
+happily made available for use by the public.
+
+It has been packaged and released on PyPI by `Brandon Rhodes`_ to make
+it easier to install, built from a `GitHub repository`_ mirror of the
+project’s original source code.  None of the library’s actual authors
+are involved with the repository or package; their work is released only
+through the official `NOVAS home page`_ and their official documentation
+is the `User’s Guide to NOVAS`_ PDF.
+
 What is NOVAS?
 --------------
 
@@ -19,16 +33,8 @@ States Naval Observatory.  This version includes a few bug fixes and
 packaging adjustments that are not in the most recent June 2011
 release of the software from the Naval Observatory itself.  You can
 find these changes described at the bottom of this page in the
-Changelog, and you can also review them yourself at the `project
-repository on GitHub`_.
-
-This package has been uploaded to the Python Package Index by Brandon
-Rhodes <brandon@rhodesmill.org>.  Please contact me, and not the busy
-folks at the Naval Observatory, about any problems you encounter when
-trying to install it — any problems with how it has been packaged are
-my fault, not theirs!  For questions about how to use the library, you
-can also ask for help on Stack Overflow, where I watch for questions
-that involve Python and astronomy.
+Changelog, and you can also review them yourself at the
+`GitHub repository`_.
 
 Quick Examples
 --------------
@@ -194,8 +200,7 @@ the Python Package Index:
 * Bugfix: to ``eph_manager.c`` as recommended in the `NOVAS FAQ`_.
 * Bugfix: to ``novas.c`` as recommended in the `NOVAS FAQ`_.
 
-To examine the code changes yourself, you can visit the `project
-repository on GitHub`_.
+To examine the code changes yourself, visit the `GitHub repository`_.
 
 Version 3.1 — 2012 September 19
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -229,4 +234,6 @@ doing by making the software available to the public.
 .. _unittest2 module: http://pypi.python.org/pypi/unittest2
 .. _NOVAS home page: http://aa.usno.navy.mil/software/novas/novas_py/novaspy_intro.php
 .. _NOVAS FAQ: http://aa.usno.navy.mil/software/novas/novas_faq.php
-.. _project repository on GitHub: https://github.com/brandon-rhodes/python-novas
+.. _GitHub repository: https://github.com/brandon-rhodes/python-novas
+.. _User’s Guide to NOVAS: https://github.com/brandon-rhodes/python-novas/raw/master/Cdist/NOVAS_C3.1_Guide.pdf
+.. _Brandon Rhodes: https://rhodesmill.org/brandon/
