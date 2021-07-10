@@ -39,11 +39,18 @@ Changelog, and you can also review them yourself at the
 Quick Examples
 --------------
 
-Importing the library and opening the planetary ephemeris:
+You can download planetary ephemerides from several sources online,
+including:
+
+* `https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/`_
+* `https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/a_old_versions/`_
+
+You can then import the NOVAS Python library and open a planetary
+ephemeris with:
 
 >>> from novas import compat as novas
 >>> from novas.compat import eph_manager
->>> jd_start, jd_end, number = eph_manager.ephem_open()
+>>> jd_start, jd_end, number = eph_manager.ephem_open('de421.bsp')
 
 Converting a calendar date to a Julian date:
 
