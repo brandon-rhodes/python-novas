@@ -1243,7 +1243,7 @@ def equ2hor(jd_ut1, delta_t, xp, yp, location, ra, dec, ref_option=0,
         Topocentric right ascension of object of interest, in hours,
         referred to true equator and equinox of date.
     dec : float
-        Topocentric declination of object of interest, in hours,
+        Topocentric declination of object of interest, in degrees,
         referred to true equator and equinox of date.
     ref_option : {0, 1, 2}, optional
             = 0 ... no refraction (default)

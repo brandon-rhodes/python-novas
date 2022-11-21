@@ -176,6 +176,9 @@ def main():
             'Programming Language :: Python :: 2.7',
             'Programming Language :: Python :: 3.3',
             'Programming Language :: Python :: 3.4',
+            'Programming Language :: Python :: 3.5',
+            'Programming Language :: Python :: 3.6',
+            'Programming Language :: Python :: 3.7',
             'Topic :: Scientific/Engineering :: Astronomy',
         ],
 
@@ -192,7 +195,7 @@ def main():
 
     # Begin customizations by Brandon Rhodes for release on PyPI
     options['name'] = 'novas'
-    options['version'] = '3.1.1.4'
+    options['version'] = '3.1.1.5'
     options['description'] = ('The United States Naval Observatory'
                               ' NOVAS astronomy library')
     options['long_description'] = (codecs.open('README-PyPI', 'r', 'utf-8')
