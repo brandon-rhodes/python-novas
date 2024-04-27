@@ -42,8 +42,8 @@ Quick Examples
 You can download planetary ephemerides from several sources online,
 including:
 
-* `https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/`_
-* `https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/a_old_versions/`_
+* `https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/ <https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/>`_
+* `https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/a_old_versions/ <https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/a_old_versions/>`_
 
 You can then import the NOVAS Python library and open a planetary
 ephemeris with:
