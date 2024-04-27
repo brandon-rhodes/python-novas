@@ -136,6 +136,7 @@ def main():
                 'include_dirs': ['Cdist'],
                 'extra_compile_args': ['-arch', 'i386',
                                        '-arch', 'x86_64',
+                                       '-arch', 'arm64',
                                        '-O2', '-Wall', '-fPIC']
             }
         )]
