@@ -1,7 +1,7 @@
 /MANIFEST
 /dist/
-/build
 /ephemeris/novas_de405/DE405.bin
 /.tox/
+*.egg-info
 *.pyc
 tmp*.py
