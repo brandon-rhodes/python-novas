@@ -2,15 +2,20 @@
 Welcome to NOVAS Py
 ###################
 
-.. important::
+* This GitHub repository is merely a mirror of this official United
+  States Naval Observatory software library, with the code tweaked to
+  make possible its release on the Python Package Index as the `novas
+  package`_.  None of the library’s actual authors are involved with
+  this repository.  Its official documentation is here:
 
-   This GitHub repository is merely a mirror of this official United
-   States Naval Observatory software library, with the code tweaked to
-   make possible its release on the Python Package Index as the `novas
-   package`_.  None of the library’s actual authors are involved with
-   this repository.  Its official documentation is here:
+  `User’s Guide to NOVAS`_
 
-   * `User’s Guide to NOVAS`_
+* If you are interested in using NOVAS from the C language, it looks
+  like an astronomer at the Smithsonian has taken the final version of
+  the code from the Naval Observatory — which was released in March 2011
+  — and has been fixing bugs and adding new features:
+
+  `github.com/Smithsonian/SuperNOVAS <https://github.com/Smithsonian/SuperNOVAS>`_
 
 What is NOVAS?
 ==============
